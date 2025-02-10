@@ -1,0 +1,21 @@
+.welcome-message {
+  text-align: center;
+  margin: 1px;
+}
+div h1,
+div h2,
+div h3 {
+  margin-top: 25px; /* Espacio arriba */
+  margin-bottom: 2px; /* Espacio abajo */
+}
+
+.component-SaveEmployees {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.table-container {
+  margin: 40px auto; /* Centra la tabla */
+  text-align: center;
+  max-width: 90%;
+}
