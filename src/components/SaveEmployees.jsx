@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 const SaveEmployees = ({ OnaddEmployees }) => {
+  let ID = 0;
   const [Name, setName] = useState("");
   const [LastName, setLastName] = useState("");
   const [Age, setAge] = useState("");
@@ -21,21 +22,9 @@ const SaveEmployees = ({ OnaddEmployees }) => {
   };
 
   const btnAddEmployee = () => {
-    //logica para agg el empleado
-    // setEmployee({ Name, LastName, Age, WorkPosition });
-    // console.log("save employee");
-    // console.log(Employee);
-    // addEmployees(Employee);
-    // setName("");
-    // setLastName("");
-    // setAge("");
-    // setWorkPosition("");
-    // //  limpiar los inputs y actualizar el state del empleado
-    // //  en el componente principal para reflejar los cambios
-    // //  en la lista de empleados
     // Crear el nuevo empleado con los valores actuales
-    const newEmployee = { Name, LastName, Age, WorkPosition };
-
+    const newEmployee = { ID, Name, LastName, Age, WorkPosition };
+    console.log(newEmployee);
     // Llamar directamente a addEmployees con el nuevo objeto
     OnaddEmployees(newEmployee);
 
@@ -44,8 +33,7 @@ const SaveEmployees = ({ OnaddEmployees }) => {
     setLastName("");
     setAge("");
     setWorkPosition("");
-
-    console.log("Empleado guardado:", newEmployee);
+    ID++; // Incrementar el ID para el próximo empleado
   };
 
   return (
