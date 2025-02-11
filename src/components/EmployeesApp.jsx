@@ -10,7 +10,7 @@ const EmployeesApp = () => {
   };
 
   const onDeleteEmployee = (id) => {
-    // setdataEmployee(dataEmployee.filter((employee) => employee.ID !== id));
+    setdataEmployee(dataEmployee.filter((employee) => employee.ID !== id));
   };
 
   return (

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const SaveEmployees = ({ OnaddEmployees }) => {
-  let ID = 0;
+  const [ID, setID] = useState(0);
   const [Name, setName] = useState("");
   const [LastName, setLastName] = useState("");
   const [Age, setAge] = useState("");
@@ -27,13 +27,13 @@ const SaveEmployees = ({ OnaddEmployees }) => {
     console.log(newEmployee);
     // Llamar directamente a addEmployees con el nuevo objeto
     OnaddEmployees(newEmployee);
+    setID(ID + 1); // Incrementar el ID para el próximo empleado
 
     // Limpiar los inputs
     setName("");
     setLastName("");
     setAge("");
     setWorkPosition("");
-    ID++; // Incrementar el ID para el próximo empleado
   };
 
   return (
