@@ -7,6 +7,7 @@ const EmployeesApp = () => {
 
   const addEmployees = (newEmploye) => {
     setdataEmployee([...dataEmployee, newEmploye]);
+    console.log("Employee added");
   };
 
   return (
@@ -16,8 +17,8 @@ const EmployeesApp = () => {
         <h3>Welcome to the Employees App!</h3>
         <h3>This app was create with React + Vue </h3>
       </div>
-      <SaveEmployees addEmployees={addEmployees} />
-      <ListEmployees />
+      <SaveEmployees OnaddEmployees={addEmployees} />
+      <ListEmployees data={dataEmployee} />
     </>
   );
 };

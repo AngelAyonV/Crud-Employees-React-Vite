@@ -1,6 +1,6 @@
 import React from "react";
 
-const ListEmployees = () => {
+const ListEmployees = ({ data }) => {
   return (
     <div className="table-container">
       <table className="table table-striped table-bordered">
@@ -13,13 +13,22 @@ const ListEmployees = () => {
           </tr>
         </thead>
         <tbody>
-          {/* Aquí puedes mapear los datos dinámicamente */}
-          <tr>
-            <td>Ejemplo</td>
-            <td>Apellido Ejemplo</td>
-            <td>25</td>
-            <td>Desarrollador</td>
-          </tr>
+          {data.length > 0 ? (
+            data.map((emp, index) => (
+              <tr key={index}>
+                <td>{emp.Name}</td>
+                <td>{emp.LastName}</td>
+                <td>{emp.Age}</td>
+                <td>{emp.WorkPosition}</td>
+              </tr>
+            ))
+          ) : (
+            <tr>
+              <td colSpan="4" className="text-center">
+                No employees added yet.
+              </td>
+            </tr>
+          )}
         </tbody>
       </table>
     </div>
