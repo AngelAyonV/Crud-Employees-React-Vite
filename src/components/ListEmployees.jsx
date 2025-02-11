@@ -1,6 +1,6 @@
 import React from "react";
 
-const ListEmployees = ({ data }) => {
+const ListEmployees = ({ data, onDelete }) => {
   return (
     <div className="table-container">
       <table className="table table-striped table-bordered">
@@ -10,6 +10,7 @@ const ListEmployees = ({ data }) => {
             <th>Last name</th>
             <th>Age</th>
             <th>Work position</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -20,6 +21,15 @@ const ListEmployees = ({ data }) => {
                 <td>{emp.LastName}</td>
                 <td>{emp.Age}</td>
                 <td>{emp.WorkPosition}</td>
+                <td>
+                  <button
+                    onClick={onDelete(index)}
+                    className="btn btn-primary btn-sm"
+                  >
+                    Edit
+                  </button>
+                  <button className="btn btn-danger btn-sm mx-2">Delete</button>
+                </td>
               </tr>
             ))
           ) : (

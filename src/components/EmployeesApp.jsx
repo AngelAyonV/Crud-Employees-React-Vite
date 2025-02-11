@@ -7,7 +7,10 @@ const EmployeesApp = () => {
 
   const addEmployees = (newEmploye) => {
     setdataEmployee([...dataEmployee, newEmploye]);
-    console.log("Employee added");
+  };
+
+  const onDeleteEmployee = (id) => {
+    // setdataEmployee(dataEmployee.filter((employee) => employee.ID !== id));
   };
 
   return (
@@ -18,7 +21,7 @@ const EmployeesApp = () => {
         <h3>This app was create with React + Vue </h3>
       </div>
       <SaveEmployees OnaddEmployees={addEmployees} />
-      <ListEmployees data={dataEmployee} />
+      <ListEmployees data={dataEmployee} onDelete={onDeleteEmployee} />
     </>
   );
 };
