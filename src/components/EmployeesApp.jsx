@@ -23,6 +23,16 @@ const EmployeesApp = () => {
     }
   };
 
+  const newEditEmployee = (employee) => {
+    console.log("Nuevo employee editado");
+    console.log(employee);
+    // Actualizar solo el empleado con el mismo ID en dataEmployee
+    setdataEmployee((dataEmployee) =>
+      dataEmployee.map((emp) => (emp.ID === employee.ID ? employee : emp))
+    );
+    setemployeeEdit(null);
+  };
+
   return (
     <>
       <div className="welcome-message">
@@ -33,6 +43,7 @@ const EmployeesApp = () => {
       <SaveEmployees
         OnaddEmployees={addEmployees}
         OneditEmployee={employeeEdit}
+        newEditEmployee={newEditEmployee}
       />
       <ListEmployees
         data={dataEmployee}

@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 const ListEmployees = ({ data, onDelete, onEdit }) => {
+  useEffect(() => {}, [data]);
+
   return (
     <div className="table-container">
       {data.length === 0 ? (
