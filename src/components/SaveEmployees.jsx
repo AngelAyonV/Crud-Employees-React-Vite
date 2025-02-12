@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
-const SaveEmployees = ({ OnaddEmployees }) => {
+const SaveEmployees = ({ OnaddEmployees, OneditEmployee }) => {
   const [ID, setID] = useState(0);
   const [Name, setName] = useState("");
   const [LastName, setLastName] = useState("");
@@ -24,6 +24,7 @@ const SaveEmployees = ({ OnaddEmployees }) => {
   const btnAddEmployee = () => {
     // Crear el nuevo empleado con los valores actuales
     const newEmployee = { ID, Name, LastName, Age, WorkPosition };
+    console.log("Add employee");
     console.log(newEmployee);
     // Llamar directamente a addEmployees con el nuevo objeto
     OnaddEmployees(newEmployee);
@@ -35,6 +36,16 @@ const SaveEmployees = ({ OnaddEmployees }) => {
     setAge("");
     setWorkPosition("");
   };
+  //Edit employee :D
+  useEffect(() => {
+    console.log(OneditEmployee);
+    // if (OneditEmployee) {
+    //   setName(employeeToEdit.Name);
+    //   setLastName(employeeToEdit.LastName);
+    //   setAge(employeeToEdit.Age);
+    //   setWorkPosition(employeeToEdit.WorkPosition);
+    // }
+  }, [OneditEmployee]);
 
   return (
     <div className="component-SaveEmployees">

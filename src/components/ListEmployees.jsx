@@ -1,6 +1,6 @@
 import React from "react";
 
-const ListEmployees = ({ data, onDelete }) => {
+const ListEmployees = ({ data, onDelete, onEdit }) => {
   return (
     <div className="table-container">
       {data.length === 0 ? (
@@ -29,6 +29,12 @@ const ListEmployees = ({ data, onDelete }) => {
                     onClick={() => onDelete(employee.ID)} // Eliminar el empleado
                   >
                     Delete
+                  </button>
+                  <button
+                    className="btn btn-secondary btn-sm mx-2"
+                    onClick={() => onEdit(employee.ID)} // Eliminar el empleado
+                  >
+                    Edit
                   </button>
                 </td>
               </tr>
