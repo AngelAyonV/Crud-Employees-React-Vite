@@ -1,13 +1,17 @@
 import React, { useState } from "react";
 import SaveEmployees from "./SaveEmployees";
 import ListEmployees from "./ListEmployees";
+import { Validations } from "../helpers/Validation";
 
 const EmployeesApp = () => {
   const [dataEmployee, setdataEmployee] = useState([]);
   const [employeeEdit, setemployeeEdit] = useState(null);
 
+  // Funcion para agregar a data employee los nuevos empleados
   const addEmployees = (newEmploye) => {
-    setdataEmployee([...dataEmployee, newEmploye]);
+    if (Validations(newEmploye)) {
+      setdataEmployee([...dataEmployee, newEmploye]);
+    }
   };
 
   const onDeleteEmployee = (id) => {
@@ -22,15 +26,15 @@ const EmployeesApp = () => {
       setemployeeEdit(employee);
     }
   };
-
+  //Funcion para agregar a data employee los employees ya editados
   const newEditEmployee = (employee) => {
-    console.log("Nuevo employee editado");
-    console.log(employee);
     // Actualizar solo el empleado con el mismo ID en dataEmployee
-    setdataEmployee((dataEmployee) =>
-      dataEmployee.map((emp) => (emp.ID === employee.ID ? employee : emp))
-    );
-    setemployeeEdit(null);
+    if (Validations(employee)) {
+      setdataEmployee((dataEmployee) =>
+        dataEmployee.map((emp) => (emp.ID === employee.ID ? employee : emp))
+      );
+      setemployeeEdit(null);
+    }
   };
 
   return (
