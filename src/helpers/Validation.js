@@ -1,4 +1,4 @@
-// Archivo de validaciones
+// Archivo de validacioness
 export const Validations = (dataValidation) => {
   // Verificar que no haya campos vacíos
   for (const key in dataValidation) {
